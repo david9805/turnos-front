@@ -1,6 +1,6 @@
 export const environment = {
-    // base: 'https://turnos-back-production.up.railway.app/api/turnos/',
-    base: 'http://localhost:3000/api/turnos/',
+    base: 'https://turnos-back-production.up.railway.app/api/turnos/',
+    // base: 'http://localhost:3000/api/turnos/',
     getEventos: '',
     getTurno: 'minuto',
     getAsistentes: 'asistentes',
