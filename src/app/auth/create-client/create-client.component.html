@@ -1,0 +1,50 @@
+<nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex flex-shrink-0 items-center">
+            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </nav>
+<form>
+<div class="p-4 mt-8 bg-white ml-6 mr-6 rounded-lg justify-center">    
+    <h1 class="text-center text-gray-900">Registrar Cliente</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+        <app-input typeForm="text" label="Nombre 1" [controller]="nombre1"></app-input>
+        <!-- <app-input typeForm="text" label="Nombre 2" [controller]="nombre2"></app-input> -->
+        <app-input typeForm="text" label="Apellido 1" [controller]="apellido1"></app-input>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 p-4">
+        <app-input typeForm="select" label="Tipo Documento" [controller]="idTipoDocumento" [dataSelect$]="dataTipoDocumento"></app-input>
+        <app-input typeForm="text" label="Documento" [controller]="documento" maxlength="15"></app-input>        
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 p-4">
+        <app-input typeForm="email" label="Correo" [controller]="email"></app-input>
+        <app-input typeForm="text" label="Celular" [controller]="celular" mask="number" maxlength="10"></app-input>        
+        <div class="relative w-full mt-1">
+          <label class="block text-sm font-medium leading-6 text-gray-900">Fecha de nacimiento</label>
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+              <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 mt-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2"/>
+              </svg>
+          </div>
+          <input id="datepicker-format" datepicker datepicker-autohide datepicker-format="dd-mm-yyyy" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Selecciona la fecha" [formControl] = "fechaSeleccionada">
+        </div>  
+    </div>
+
+    <div class="grid grid-cols-1  gap-4 p-4">
+        <!-- <app-input typeForm="text" label="Dirección Residencia" [controller]="direccionResidencia"></app-input> -->
+    </div>
+
+    <div class="flex justify-between">        
+        <button type="button" class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" (click)="save()">Guardar</button>
+        <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2" (click)="cancel()">Cancelar</button>
+    </div>    
+</div>
+</form>

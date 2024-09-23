@@ -1,0 +1,24 @@
+<!-- Columna del Formulario de Login -->
+<div class="flex min-h-screen items-center justify-center  px-6 py-12 body">
+    <!-- <img class="mx-auto h-20 w-auto" src="https://media.licdn.com/dms/image/C4E0BAQE6hFlhgVgyFA/company-logo_200_200/0/1630629534494?e=2147483647&v=beta&t=axkYR5LjgOhT2ZUKn7M4AjVgac5AwUy7r8_FA44e_yA" alt="Your Company"> -->
+    
+
+  <div class=" sm:mx-auto sm:w-full sm:max-w-sm bg-white p-7 rounded-lg">
+    <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      Inicia Sesión Con Tu Documento
+    </h2>
+    <div>
+      <app-input typeForm="text" label="Documento" [controller]="documento" placeholder="Documento..."></app-input>
+    </div>
+
+    <div>
+      <button
+        type="button"
+        class="w-full p-2 mt-4 rounded-md bg-indigo-600 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+        (click)="login()"
+      >
+        Inicia Sesión
+      </button>
+    </div>
+  </div>
+</div>

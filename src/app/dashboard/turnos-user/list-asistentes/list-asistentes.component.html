@@ -1,0 +1,49 @@
+<div class="mt-2 mb-2 mr-2 ml-2">
+    
+    <table mat-table [dataSource]="dataSource" matSort class=" divide-y divide-gray-200 mt-4">
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID</th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap">#{{element?.idAsistentesEventos}}</td>
+        </ng-container>
+    
+        <!-- Almacen Column -->
+        <ng-container matColumnDef="nombres">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombres</th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap">{{element?.nombreAsistente}}</td>
+        </ng-container>
+    
+        <!-- Local Column -->
+        <ng-container matColumnDef="anioNacimiento">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Año Nacimiento</th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap">{{element?.anioNacimiento}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="nombreCliente">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre Cliente</th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap">{{element?.cliente.nombre1  + ' ' + element?.cliente.apellido1}}</td>
+        </ng-container>
+
+
+        <ng-container matColumnDef="identificacion">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Identificacion</th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap">{{element?.cliente.documento}}</td>
+        </ng-container>
+
+        
+    
+        <!-- Acciones Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Asistencia</th>
+          <td mat-cell *matCellDef="let element" class="px-6 py-4 whitespace-nowrap">
+            <label class="inline-flex items-center me-5 cursor-pointer">
+                <input type="checkbox" class="sr-only peer" [checked]="element.asiste" (click)="asistChange(element)">
+                <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-teal-300 dark:peer-focus:ring-teal-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-teal-600"></div>
+            </label>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>      
+</div>

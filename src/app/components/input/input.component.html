@@ -1,0 +1,30 @@
+<label  [ngClass]="labelClass">{{label}}</label>
+<div class="mt-2">
+
+    <input  *ngIf="typeForm === 'email'" [formControl]="controller" id="email" name="email" type="email" autocomplete="email"  [ngClass]="statusClass" [placeholder]="placeholder">
+    <input *ngIf="typeForm === 'password'" [formControl]="controller" id="password" name="password"  type="password" autocomplete="current-password"  [ngClass]="statusClass" [placeholder]="placeholder">
+    <input *ngIf="typeForm === 'text'" type="text" [maxlength]="maxlength" [formControl]="controller" name="first-name" id="first-name" autocomplete="given-name"  [ngClass]="statusClass"  [placeholder]="placeholder" [appInputMask]="maskInput" [attr.readonly] = "isDisabled ? true : null">
+    <input *ngIf="typeForm === 'number'" type="number" [maxlength]="maxlength" [formControl]="controller" name="first-name" id="first-name" autocomplete="given-name"  [ngClass]="statusClass"  [placeholder]="placeholder">
+    <select *ngIf="typeForm === 'select'" id="country" name="country" autocomplete="country-name" [ngClass]="statusClass" [formControl]="controller">
+        <option *ngFor="let item of dataSelect" [value]="item.id">{{item.description}}</option>
+    </select>
+    <div *ngIf="typeForm === 'checkbox'" class="flex items-center mb-4">
+        <input  id="comments" name="comments" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600" [formControl] = "controller" >
+        <label for="default-checkbox" [ngClass]="labelClass" class="ms-2">{{ controller.getRawValue() ? checked : unchecked}}</label>
+    </div>       
+    <div class="flex" *ngIf="typeForm === 'radiobox'">
+        <div class="flex items-center me-4" *ngFor="let item of dataRadioBox">
+            <input checked id="purple-radio" type="radio" [value]="item.value" name="colored-radio" [ngClass]="radioClass" [formControl]="controller">
+            <label for="purple-radio" [ngClass]="labelClass" class=ms-2>{{item.label}}</label>
+        </div>
+    </div>
+</div>
+  
+<ng-container *ngIf=" (controller.invalid && controller.touched)">
+    <p *ngIf="controller.hasError('required')" class="mt-2 text-sm text-red-600 dark:text-red-500"> Este campo es obligatorio.</p>    
+    <p *ngIf="controller.hasError('email')" class="mt-2 text-sm text-red-600 dark:text-red-500"> Correo incorrecto.</p>    
+    <p *ngIf="controller.hasError('maxLength')" class="mt-2 text-sm text-red-600 dark:text-red-500"> La longitud máxima permitida es {{ controller.errors?.['maxlength']?.requiredLength }}.</p>    
+    <p *ngIf="controller.hasError('min')" class="mt-2 text-sm text-red-600 dark:text-red-500">El valor mínimo permitido es {{ controller.errors?.['min']?.min }}.</p>
+    <p *ngIf="controller.hasError('max')" class="mt-2 text-sm text-red-600 dark:text-red-500">El valor máximo permitido es {{ controller.errors?.['max']?.max }}.</p>
+    <p *ngIf="controller.hasError('pattern')" class="mt-2 text-sm text-red-600 dark:text-red-500">El celular debe ser valido.</p>
+</ng-container>

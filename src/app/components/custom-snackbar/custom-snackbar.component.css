@@ -1,0 +1,6 @@
+/* Sobrescribe los estilos del Snackbar */
+::ng-deep .mat-mdc-snack-bar-container .mdc-snackbar__surface {
+    background-color: transparent!important; /* Color de fondo personalizado */
+    border-radius: none !important; /* Radio de borde personalizado */
+    box-shadow: none !important; /* Sombra personalizada */
+}
